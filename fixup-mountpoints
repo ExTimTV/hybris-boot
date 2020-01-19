@@ -1283,6 +1283,17 @@ case "$DEVICE" in
             -e 's block/bootdevice/by-name/oem mmcblk0p30 ' \
             "$@"
         ;;
+
+    "gtexslte")
+        sed -i \
+            -e 's /dev/block/platform/sdio_emmc/by-name/SYSTEM /dev/block/mmcblk0p25 ' \
+            -e 's /dev/block/platform/sdio_emmc/by-name/CACHE /dev/block/mmcblk0p24 ' \
+            -e 's /dev/block/platform/sdio_emmc/by-name/efs /dev/block/mmcblk0p17 ' \
+            -e 's /dev/block/platform/sdio_emmc/by-name/prodnv /dev/block/mmcblk0p18 ' \
+            -e 's /dev/block/platform/sdio_emmc/by-name/HIDDEN /dev/block/mmcblk0p26 ' \
+            -e 's /dev/block/platform/sdio_emmc/by-name/userdata /dev/block/mmcblk0p27 ' \
+            "$@"
+        ;;
     *)
         cat <<EOF
 
